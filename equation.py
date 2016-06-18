@@ -22,7 +22,7 @@ class equation :
             self.rightEquBaseMul.append(re[1])
 
     # leftEqu = rightEqu[0][0] * rightEqu[0][1]  + rightEqu[1][0] * rightEqu[1][1]
-    # 例   13  =     91         *       1         +      26        *       -3
+    #     13  =     91         *       1         +      26        *       -3
     def setEquBase(self, leftEqu, rightEqu=[]):
         self.leftEquBase = leftEqu
         self.rightEquBase = rightEqu

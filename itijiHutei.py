@@ -1,9 +1,9 @@
 # coding=utf-8
-from euc import *
+from Euclid import *
 from equation import *
 
 
-class itijiHutei(euc):
+class itijiHutei(Euclid):
 
     def __init__(self):
         super(itijiHutei, self).__init__()
@@ -58,7 +58,7 @@ class itijiHutei(euc):
                 eq.setEquBase(remList[i], [[aList[i], 1], [bList[i], -mulList[i]]])
             else:
                 eq.setEquAdd(remList[i], [[aList[i], 1], [bList[i], -mulList[i]]])
-                # 2つの式を　結合
+                # 2つの式を結合
                 eq.margeEqu()
         # 計算結果を表示用のListに格納
         self.resultList = eq.getEquBase()

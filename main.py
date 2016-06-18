@@ -1,11 +1,10 @@
 # coding=utf-8
-from euc import *
-from itijiHutei import *
 from findPrime import *
-
+from itijiHutei import *
+from Euclid import *
 
 def doEuc():
-    c = euc()
+    c = Euclid()
     c.getInput()
     c.getGcd()
     c.showResult()
