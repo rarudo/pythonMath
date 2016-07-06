@@ -8,7 +8,9 @@ class itijiHutei(Euclid):
         super(itijiHutei, self).__init__()
         self.inputNumC = -1
         self.resultList = []
-        self.numAminus
+        # 入力がマイナスを含む場合はTrue
+        self.numAminus = False
+        self.numBminus = False
 
     # override
     def getInput(self):
@@ -22,6 +24,28 @@ class itijiHutei(Euclid):
         print'C =',
         # self.inputNumC = 13
         self.inputNumC = int(raw_input())
+        self.checkNumAminus()
+        self.checkNumBminus()
+
+    def setNumA(self, _num):
+        self.inputNumA = _num
+        self.checkNumAminus()
+
+    def setNumB(self, _num):
+        self.inputNumB = _num
+        self.checkNumBminus()
+
+    def checkNumAminus(self):
+        # 入力がマイナスを含む場合
+        if self.inputNumA < 0:
+            self.inputNumA = -self.inputNumA
+            self.numAminus = True
+
+    def checkNumBminus(self):
+        if self.inputNumB < 0:
+            self.inputNumB = -self.inputNumB
+            self.numBminus = True
+
 
     @staticmethod
     def getListIndex(dimlist = []):
@@ -55,6 +79,7 @@ class itijiHutei(Euclid):
         for i in range(0, listLength)[::-1]:
             print remList[i], ' = ', aList[i], ' * ', mulList[i], ' - ', bList[i]
             if i == listLength-1:
+                # = 1 となる最初の式をセット
                 eq.setEquBase(remList[i], [[aList[i], 1], [bList[i], -mulList[i]]])
             else:
                 eq.setEquAdd(remList[i], [[aList[i], 1], [bList[i], -mulList[i]]])
@@ -62,3 +87,9 @@ class itijiHutei(Euclid):
                 eq.margeEqu()
         # 計算結果を表示用のListに格納
         self.resultList = eq.getEquBase()
+
+        # 入力がマイナス値の場合に対応
+        if self.numAminus:
+            self.resultList[0][1] = self.resultList[0][1]
+        if self.numBminus:
+            self.resultList[1][1] = self.resultList[1][1]
