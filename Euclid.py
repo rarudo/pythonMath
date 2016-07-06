@@ -2,7 +2,7 @@
 from EuclidFrame import *
 
 
-class Euclid(EuclidFrame):
+class Euclid(object):
     def __init__(self):
         super(Euclid, self).__init__()
         # コンソールから入力された値1
@@ -20,15 +20,19 @@ class Euclid(EuclidFrame):
         # 最大公約数の結果を格納
         self.result = -1
 
+    # NumAlistにnumAの値のlogが入る
     def getNumAlist(self):
         return self.numalist
 
+    # NumBlistにnumBの値のlogが入る
     def getNumBlist(self):
         return self.numblist
 
+    # remListにrem(あまり)の値のlogが入る
     def getRemList(self):
         return self.remlist
 
+    # inputNumA > inputNumB を常に維持するための処理
     def checkNum(self):
         # inputNumA > inputNumB を常に維持
         if self.inputNumB > self.inputNumA:
@@ -37,6 +41,7 @@ class Euclid(EuclidFrame):
             self.inputNumB = tmp
         return
 
+    # コンソールから得た値をフィールド変数へ格納するための処理
     def getInput(self):
         print('A と B の最大公約数を求める')
         print'A =',
@@ -56,6 +61,7 @@ class Euclid(EuclidFrame):
         rem = x % y
         return (x - rem) / y
 
+    # フィールド変数の中身を表示する
     def showLists(self):
         print self.numAlist
         print self.numBlist
@@ -63,6 +69,7 @@ class Euclid(EuclidFrame):
         print self.mulList
         return
 
+    # 結果の表示処理
     def showResult(self):
         print self.inputNumA, 'と', self.inputNumB, 'の最大公約数は'
         print self.result

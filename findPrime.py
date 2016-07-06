@@ -1,6 +1,5 @@
 # coding=utf-8
 class findPrime():
-
     def __init__(self):
         # 10^N桁までマッピングするか
         self.maxMapping = 10 ** 4
@@ -43,11 +42,14 @@ class findPrime():
     def removePrimeAll(self):
         _mappingList = self.mapping
         for rm in self.primeList:
+            if rm > _mappingList[-1]/2:
+                return
             for pl in _mappingList:
                 if pl % rm == 0:
                     removeKey = self.mapping.index(pl)
                     del(self.mapping[removeKey])
 
+    # クラス内メインメソッド
     def getPrime(self):
         while len(self.mapping) > 0:
             self.primeList.append(self.mapping[0])

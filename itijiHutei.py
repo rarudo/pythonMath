@@ -2,13 +2,13 @@
 from Euclid import *
 from equation import *
 
-
 class itijiHutei(Euclid):
 
     def __init__(self):
         super(itijiHutei, self).__init__()
         self.inputNumC = -1
         self.resultList = []
+        self.numAminus
 
     # override
     def getInput(self):
